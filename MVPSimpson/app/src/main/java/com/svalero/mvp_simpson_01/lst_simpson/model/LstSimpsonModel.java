@@ -17,9 +17,10 @@ public class LstSimpsonModel implements LstSimpsonContract.Model {
     public void lstSimpsonWS(Simpson simpson,
                              OnLstSimpsonListener onLstSimpsonListener) {
         //Si ha ido bien !!!!!!!!!!!
-        onLstSimpsonListener.onSuccess(null);
+        //onLstSimpsonListener.onSuccess(null);
         //Si ha ido mal !!!!!!!!!!!
-        onLstSimpsonListener.onFailure("ERRRRRORRRRRR!!!!!!!!!!!!");
+        //onLstSimpsonListener.onFailure("ERRRRRORRRRRR!!!!!!!!!!!!");
+        getSimpsonService(onLstSimpsonListener);
     }
 
     public void getSimpsonService(final OnLstSimpsonListener onLstSimpsonListener) {

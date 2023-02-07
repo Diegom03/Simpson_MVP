@@ -26,22 +26,18 @@ public class LstSimpsonModel implements LstSimpsonContract.Model {
         /*Ejecuto Webservice con retrofit*/
         ApiInterface apiService = ApiClient.getClient()
                 .create(ApiInterface.class);
-        Call<ArrayList<Simpson>> call = apiService.getPopularSimpson(2);
+        Call<ArrayList<Simpson>> call = apiService.getPopularSimpson(5);
         call.enqueue(new Callback<ArrayList<Simpson>>() {
-            
             @Override
             public void onResponse(Call<ArrayList<Simpson>> call, Response<ArrayList<Simpson>> response) {
-                ArrayList<Simpson> lstPeliculas = response.body();
-                if(lstPeliculas!=null){
-                    //OnLoginListener.onFinished(user);
-                }else{
-                    //OnLoginListener.onFinished(null);
-                }
+                ArrayList<Simpson> lstSimpson = response.body();
+                //OnLoginListener.onFinished(user);
+                onLstSimpsonListener.onSuccess(lstSimpson);
             }
 
             @Override
             public void onFailure(Call<ArrayList<Simpson>> call, Throwable t) {
-                //OnLoginListener.onFailure(null);
+                onLstSimpsonListener.onFailure(t.getMessage());
             }
         });
     }

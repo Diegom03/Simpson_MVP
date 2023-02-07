@@ -28,9 +28,11 @@ public class LstSimpsonActivity extends AppCompatActivity
     public void initComponents(){
 
     }
+
     public void initPresenter(){
         lstSimpsonPresenter = new LstSimpsonPresenter(this);
     }
+
     public void initData(){
         lstSimpsonPresenter.lstSimpson(null); //SELECT * FROM SIMPSON
     }
@@ -39,6 +41,7 @@ public class LstSimpsonActivity extends AppCompatActivity
     @Override
     public void successLstSimpson(ArrayList<Simpson> lstSimpson) {
         // ADAPTER. NOTIFY SET DATA CHANGED
+        Toast.makeText(this, lstSimpson.get(0).toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
